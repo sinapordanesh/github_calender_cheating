@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GitHub calendar customizer</title>
+
+
+  <link rel="stylesheet" type="text/css" href="git-cal-customizer.css">
+</head>
+<body>
+
+  <section class="title-section">
+    <h1>GitHub contribution calendar customizer</h1>
+    <h3>See this project <a href="https://github.com/ZachSaucier/github-calendar-customizer">on GitHub</a></h3>
+  </section>
+
+  <section>
+    <canvas id="cellCanvas"></canvas>
+
+    <button id="invertColors" title="switch the darkest colors for the lightest and the lightest for the darkest">Invert colors</button>
+
+    <div id="palette">
+      <label>
+        <input type="radio" name="brush" value="0"/>
+      </label>
+      <label>
+        <input type="radio" name="brush" value="1"/>
+      </label>
+      <label>
+        <input type="radio" name="brush" value="2"/>
+      </label>
+      <label>
+        <input type="radio" name="brush" value="3"/>
+      </label>
+      <label>
+        <input type="radio" name="brush" value="4"/>
+      </label>
+    </div>
+    <button id="undo" title="undo your last action (you can also use CTRL + Z)">Undo</button>
+    <button id="redo" title="redo the action you last undid (you can also use CTRL + Y)">Redo</button>
+
+    <p>You must select a color before clicking to change cell colors.</p>
+  </section>
+
+  <!-- Works with any image -->
+  <section class="input-section">
+    <h3>Input settings</h3>
+
+    <p><b>NOTE:</b> Entering a new image URL, index array, or changing the rounding check box will reset the current grid.</p>
+
+    <label>
+      Round image values:
+      <input type="checkbox" name="roundColors" title="uses rounding instead of flooring of values">
+      (generally takes away some variance)
+    </label>
+
+    <label>
+      Image URL: 
+      <input type="text" name="imageURL" value="/images/1.jpg" placeholder="Enter an image URL" />
+    </label>
+    
+    <img id="imageToBeUsed" src="">
+
+
+    <label>
+      Pre-made index array:
+      <textarea type="text" name="inputIndexes" placeholder="Input a previously made index array here in either gitfiti or github-board format"></textarea>
+    </label>
+  </section>
+
+  <section class="output-section">
+    <h3>Output settings</h3>
+
+    <label>
+      Cut off extra 0s:
+      <input type="checkbox" name="cutZeros" checked title="removes extra 0s from the outputted array">
+    </label>
+
+    <label>
+      Gitfiti name:
+      <input type="text" name="imageName" value="my-gitfiti-image" placeholder="Enter a name for gitfiti to use" />
+    </label>
+    
+    <pre id="gitfiti"></pre>
+    <pre id="github-board"></pre>
+  </section>
+
+  <section>
+    <p>Created with &#9829; by <a href="http://zachsaucier.com/">Zach Saucier</a>. For more, follow <a href="https://twitter.com/ZachSaucier">his Twitter</a>.</p>
+  </section>
+
+
+  <script src="git-cal-customizer.js"></script>
+</body>
+</html>
